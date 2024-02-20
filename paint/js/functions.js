@@ -1,5 +1,6 @@
 import {Circle} from "./class/Circle.js"
 import {Line} from "./class/Line.js"
+import {Rect} from "./class/Rect.js"
 
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext('2d')
@@ -57,10 +58,10 @@ draw_button.addEventListener('click', () => {
             
             break
         case 'rectangle':
-
+            drawRect()
             break
         case 'square':
-
+            drawSquare()
             break
     }
 
@@ -91,4 +92,32 @@ const drawLine = () => {
     line.setLineWidth = lineWidth
     line.setStrokeStyle = strokeStyle
     line.draw(ctx)
+}
+
+const drawRect = () => {
+    const x = x_input.value
+    const y = y_input.value
+    const width = document.querySelector('div#third input').value
+    const height = document.querySelector('div#fourth input').value   
+    const lineWidth = line_width_input.value
+    const strokeStyle = stroke_style_input.value
+    console.log(x + y + width + height )
+    const rect = new Rect(x,y,width,height)
+    rect.setLineWidth = lineWidth
+    rect.setStrokeStyle = strokeStyle
+    rect.draw(ctx)
+}
+
+const drawSquare = () => {
+    const x = x_input.value
+    const y = y_input.value
+    const width = document.querySelector('div#third input').value
+    const height = document.querySelector('div#fourth input').value   
+    const lineWidth = line_width_input.value
+    const strokeStyle = stroke_style_input.value
+    console.log(x + y + width + height )
+    const rect = new Rect(x,y,width,width)
+    rect.setLineWidth = lineWidth
+    rect.setStrokeStyle = strokeStyle
+    rect.draw(ctx)
 }
